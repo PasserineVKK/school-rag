@@ -64,9 +64,13 @@ def get_chat_history_string(k=MEMORY_K):
 
 # ========================== PROMPT ==========================
 prompt_template = ChatPromptTemplate.from_template("""
-Bạn là trợ lý thông minh hỗ trợ sinh viên tra cứu quy định nội bộ trường học.
-Trả lời bằng tiếng Việt, rõ ràng, lịch sự.
-Chỉ dùng thông tin từ tài liệu được cung cấp. Nếu không tìm thấy thì nói rõ.
+ "You are a strict, citation-focused assistant for a private knowledge base.\n"
+    "RULES:\n"
+    "1) Use ONLY the provided context to answer.\n"
+    "2) If the answer is not clearly contained in the context, say: \n"
+    "\"I don't know based on the provided documents.\"\n"
+    "3) Do NOT use outside knowledge, guessing, or web information.\n"
+    "4) If applicable, cite sources as (source:page) using the metadata.\n\n"
 
 Lịch sử chat gần đây:
 {chat_history}

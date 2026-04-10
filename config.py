@@ -18,7 +18,7 @@ os.environ["HF_HUB_CACHE"] = HF_CACHE_DIR
 os.environ["SENTENCE_TRANSFORMERS_HOME"] = HF_CACHE_DIR
 
 # LLM
-GEMINI_MODEL = "gemini-2.5-flash"   # hoặc gemini-2.5-flash nếu quota thấp
+GEMINI_MODEL = "gemini-2.5-flash-lite"   # hoặc gemini-2.5-flash nếu quota thấp
 
 MEMORY_K = 4
 CHUNK_SIZE = 1200

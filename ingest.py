@@ -1,6 +1,18 @@
 import os
 import shutil
 from config import DATA_DIR, CHROMA_PERSIST_DIR, COLLECTION_NAME, EMBEDDING_MODEL, HF_CACHE_DIR
+import tempfile
+
+# Chuyển thư mục tạm sang ổ D (hoặc ổ bạn có dung lượng trống)
+TEMP_DIR = r"D:\temp_hf"          # ← Thay D: thành ổ bạn muốn
+os.makedirs(TEMP_DIR, exist_ok=True)
+
+os.environ["TMP"] = TEMP_DIR
+os.environ["TEMP"] = TEMP_DIR
+os.environ["TMPDIR"] = TEMP_DIR
+tempfile.tempdir = TEMP_DIR
+
+print(f"📁 Thư mục tạm đã chuyển sang: {TEMP_DIR}")
 
 print("🚀 Bắt đầu ingest dữ liệu...")
 
